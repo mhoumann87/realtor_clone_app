@@ -1,4 +1,24 @@
+import { useState } from 'react';
+import { AiFillEyeInvisible, AiFillEye } from 'react-icons/ai';
+
 export default function SignIn() {
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const { email, password } = formData;
+
+  const enterFormData = e => {
+    console.log(e.target.id);
+    console.log(e.target.value);
+    setFormData(prevState => ({
+      [e.target.id]: e.target.value,
+    }));
+  };
+
   return (
     <main className='max-w-6xl mx-auto'>
       <h1 className='text-4xl text-center mt-5 font-bold'>Sign In</h1>
@@ -12,7 +32,25 @@ export default function SignIn() {
         </div>
         <div className='w-full md:w-[67%] lg:w-[40%]'>
           <form className='lg:ml-20'>
-            <input className='w-full' type='text' />
+            <input
+              className='w-full px-4 py-2 text-xl text-gray-700 bg-white border-gray-300 rounded transition ease-in-out'
+              type='email'
+              id='email'
+              value={email}
+              onChange={enterFormData}
+              placeholder='Enter Email'
+            />
+            <div className='w-full'>
+              <input
+                className='w-full px-4 py-2 text-xl text-gray-700 bg-white border-gray-300 rounded transition ease-in-out'
+                type={showPassword ? 'text' : 'password'}
+                id='password'
+                value={password}
+                onChange={enterFormData}
+                placeholder='Enter Password'
+              />
+              {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
+            </div>
           </form>
         </div>
       </section>
