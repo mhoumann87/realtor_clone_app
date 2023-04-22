@@ -86,10 +86,11 @@ export default function SignIn() {
               className='w-full bg-blue-600 text-white px-7 py-3 text-sm font-medium uppercase rounded shadow-md hover:bg-blue-700 transition duration-150 ease-in-out hover:shadow-lg active:bg-blue-800'>
               Sign In
             </button>
+            <div className='w-full'>
+              <p className='text-center font-semibold mx4 my-4 uppercase'>or</p>
+            </div>
+            <button className='w-full '></button>
           </form>
-          <div className='w-full'>
-            <p className='text-center font-semibold mx4 uppercase'>or</p>
-          </div>
         </div>
       </section>
     </main>
